@@ -8,4 +8,5 @@
 
 **Palette de couleurs**: [coolors.co](https://coolors.co/493b5b-695483-bf87f0-bcafcc-7a7285)
 
-![diagramme](/assets/images/grande_aventure.drawio)
+## Diagramme
+![diagramme](assets/images/grande_aventure.drawio.png)
