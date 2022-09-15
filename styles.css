@@ -1,0 +1,78 @@
+html{
+  background-color: #493B5B;
+}
+
+@font-face {
+  src: url("./assets/polices/alagard.ttf") format("truetype");
+  font-family: "Alagard";
+}
+
+@font-face {
+  src: url("./assets/polices/rainyhearts.ttf") format("truetype");
+  font-family: "RainyHearts";
+}
+
+.title{
+  font-family: "Alagard";
+  font-size: 50px;
+  align-self: center;
+  margin-bottom: 0px;
+  text-shadow: 3px 0px gray;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game{
+  width: 700px;
+  height: 750px;
+  display: flex;
+  justify-content: flex-start;
+  background-color: #695483;
+  flex-direction: column;
+}
+
+.subtitle{
+  font-family: "alagard";  
+  font-size: 25px;
+  align-self: center;
+}
+
+.paragraph{
+  font-family: "rainyhearts";
+  align-self: center;
+  font-size: 30px;
+  margin-top: 5px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.image{
+  margin: 30px;
+  margin-top: 0px;
+  border-radius: 15px;
+}
+
+form{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+button{
+  background-color: #BF97F0;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 5px;
+  transition-duration: 0.15s;
+}
+
+button:hover{
+  background-color: #7d6c91;
+  transition-duration: 0.15s;
+}
