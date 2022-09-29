@@ -156,5 +156,5 @@ let chaptersObj = {
 function goToChapter(chapterName) {
     console.log(chaptersObj[chapterName]["subtitle"]);
     console.log(chaptersObj[chapterName]["text"]);
-    console.log(chaptersObj[chapterName]["img"]);
+    console.log("displaying " + chaptersObj[chapterName]["img"]);
 };
