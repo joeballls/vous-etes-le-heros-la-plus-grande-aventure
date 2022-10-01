@@ -14,10 +14,11 @@ html{
 
 .title{
   font-family: "Alagard";
+  color: #b8f087;
   font-size: 50px;
   align-self: center;
   margin-bottom: 0px;
-  text-shadow: 3px 0px gray;
+  text-shadow: 0px 3px #90BD69;
 }
 
 body{
@@ -34,12 +35,14 @@ body{
   justify-content: flex-start;
   background-color: #695483;
   flex-direction: column;
+  border-radius: 10px;
 }
 
 .subtitle{
   font-family: "alagard";  
-  font-size: 25px;
+  font-size: 35px;
   align-self: center;
+  margin: 10px;
 }
 
 .paragraph{
@@ -65,16 +68,20 @@ body{
 }
 
 button{
-  background-color: #BF97F0;
+  background-color:#b8f087;
   border-style: solid;
   border-radius: 5px;
   padding: 5px;
   transition-duration: 0.15s;
   font-family: "rainyhearts";
-  font-size: 20px;
+  font-size: 23px;
 }
 
 button:hover{
-  background-color: #7d6c91;
+  background-color: #90BD69;
   transition-duration: 0.15s;
+}
+
+.none{
+  display: none;
 }
