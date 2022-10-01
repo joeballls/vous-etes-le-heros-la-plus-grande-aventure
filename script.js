@@ -250,8 +250,6 @@ let chaptersObj = { // variable qui define tout les chapitres
 
 };
 
-<<<<<<< HEAD
-
 function goToChapter(chapterName) {    
     
     let chapterSubtitle = chaptersObj[chapterName]["subtitle"]; // variable pour subtitle
@@ -280,10 +278,3 @@ function goToChapter(chapterName) {
         }
     };
 };
-=======
-function goToChapter(chapterName) {
-    console.log(chaptersObj[chapterName]["subtitle"]);
-    console.log(chaptersObj[chapterName]["text"]);
-    console.log("displaying " + chaptersObj[chapterName]["img"]);
-};
->>>>>>> 6ca58cace5589879101a22e1922d65449c3b66bc
