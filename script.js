@@ -5,7 +5,7 @@ let chaptersObj = { // variable qui define tout les chapitres
         img: "../assets/images/treasure.png",
         options: [restart = {  
                   text:"Recommencer!",
-                  action:"goToChapter('intro')"},
+                  action:"reset_items()"},
                 ],},
 
     intro: {
@@ -75,7 +75,7 @@ let chaptersObj = { // variable qui define tout les chapitres
         img: "./assets/images/achete_epee.png",
         options: [marche = {  
             text:"Splendide",
-            action:"goToChapter('quoi_acheter_marche_village')"},
+            action:"getSword()"},
           ],},
 
     ou_aller_centre: {
@@ -121,7 +121,7 @@ let chaptersObj = { // variable qui define tout les chapitres
         img: "./assets/images/taverne_engager.png",
         options: [engager = {  
             text:"Superbe",
-            action:"goToChapter('ou_aller_centre')"},
+            action:"getPartner()"},
           ],},
 
     partir_quete: {
@@ -139,7 +139,7 @@ let chaptersObj = { // variable qui define tout les chapitres
         img: "./assets/images/treasure.png",
         options: [bandits_section1 = {  
             text:"Oh non",
-            action:"goToChapter('bandits_sacrifice')"},
+            action:"bandit_shenanigans()"},
           ],},
 
     bandits_sacrifice: {
@@ -235,7 +235,7 @@ let chaptersObj = { // variable qui define tout les chapitres
         img: "./assets/images/treasure.png",
         options: [kill = {  
             text:"Kill.",
-            action:"goToChapter('dragon_victoire')"},
+            action:"dragon_fight()"},
           ],},
         
 
@@ -261,20 +261,68 @@ function goToChapter(chapterName) {
     let HTMLtext = document.querySelector(".paragraph"); // variable pour texte dans le document
     let HTMLimage = document.getElementById("imageid"); // variable pour l'image dans le document
 
+
+
     console.log(chapterSubtitle); // prints qui verifie que ca fonctione :)
     HTMLsubtitle.innerHTML = chapterSubtitle; // change le texte dans l'HTML
     HTMLtext.innerHTML = chapterText;
     document.getElementById("imageid").src=chapterImg
     let button = document.querySelectorAll(".btn");
 
+   
+
     for(let index = 0; index <= 2; index++) {
 
         if (chapterOptions[index] != undefined) {        
             button[index].innerHTML = ((chapterOptions[index].text));
             button[index].setAttribute("onclick", chapterOptions[index].action);
-            button[index].classList.remove("none");
+            button[index].classList.remove("hide");
         } else {
-            button[index].classList.add("none");
+            button[index].classList.add("hide");
         }
     };
+};    
+//conditions
+let swordObtained = false; // epee pas obtenu par defaut
+let partnerObtained = false // coequipier pas obtenu par defaut
+
+function getPartner(){
+    partnerObtained = true;
+    goToChapter("quoi_faire_taverne");
 };
+
+function getSword(){
+    swordObtained = true;
+    goToChapter("quoi_acheter_marche_village");
+};
+
+function reset_items(){
+    swordObtained = false;
+    partnerObtained = false;
+    goToChapter("intro");
+    console.log("resetted items");
+}
+
+function bandit_shenanigans(){
+    if (swordObtained == false && partnerObtained == true) {
+        goToChapter("bandits_sacrifice");
+    } else if (swordObtained == true && partnerObtained == true){
+        goToChapter("bandits_parfait");
+    } else if (swordObtained == true && partnerObtained == false){
+        goToChapter("bandits_blesse");
+    } else if (swordObtained == false && partnerObtained == false){
+        goToChapter("bandits_reset");
+    }
+}; // verifie les conditions pour le camp de bandit
+
+function dragon_fight(){
+    if (swordObtained == false && partnerObtained == true) {
+        goToChapter("dragon_reset");
+    } else if (swordObtained == true && partnerObtained == true){
+        goToChapter("dragon_victoire");
+    } else if (swordObtained == true && partnerObtained == false){
+        goToChapter("dragon_reset");
+    } else if (swordObtained == false && partnerObtained == false){
+        goToChapter("dragon_reset");
+    }
+}; // verifie les conditions pour le dragon

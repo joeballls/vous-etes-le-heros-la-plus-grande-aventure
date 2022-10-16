@@ -82,6 +82,6 @@ button:hover{
   transition-duration: 0.15s;
 }
 
-.none{
+.hide{
   display: none;
 }
