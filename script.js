@@ -259,7 +259,6 @@ function goToChapter(chapterName) {
 
     let HTMLsubtitle = document.querySelector(".subtitle"); // variable pour subtitle dans le document
     let HTMLtext = document.querySelector(".paragraph"); // variable pour texte dans le document
-    let HTMLimage = document.getElementById("imageid"); // variable pour l'image dans le document
 
 
 
@@ -279,9 +278,9 @@ function goToChapter(chapterName) {
             button[index].classList.remove("hide");
         } else {
             button[index].classList.add("hide");
-        }
+        }  
     };
-};    
+};
 //conditions
 let swordObtained = false; // epee pas obtenu par defaut
 let partnerObtained = false // coequipier pas obtenu par defaut
