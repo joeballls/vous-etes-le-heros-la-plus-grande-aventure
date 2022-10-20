@@ -1,36 +1,31 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Plus Grande Aventure</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js"></script>
-</head>
-<body>
-  <div class="game">
-    <h1 class="title">
-      La Plus Grande Aventure
-    </h1>
-    <h2 class="subtitle">
-      Réveil
-    </h2>
-    <p class="paragraph">
-      Vous vous réveillez dans votre maison. Vous ressentez un besoin de tuer une bête de très grande proportions.
-    </p>
-    <img class ="image" id="imageid" src="./assets/images/reveil.png">
-    <div class="buttons">
-      <button type="button" class="btn" onclick="goToChapter('intro2')">
-        Alright
-      </button>
-      <button type="button" class="btn hide">
-        nisi ut aliquip
-      </button>
-      <button type="button" class="btn hide">
-        ex ea commodo
-      </button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Plus Grande Aventure</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="game">
+      <h1 class="title">La Plus Grande Aventure</h1>
+      <h2 class="subtitle">Réveil</h2>
+      <p class="paragraph">
+        Vous vous réveillez dans votre maison. Vous ressentez un besoin de tuer
+        une bête de très grande proportions.
+      </p>
+      <div class="SELECT_THIS"> 
+        <img class="image" src="./assets/images/intro2.png"> 
+      </div>
+      <div class="buttons">
+        <button type="button" class="btn" onclick="goToChapter('intro2')">
+          Alright
+        </button>
+        <button type="button" class="btn hide">nisi ut aliquip</button>
+        <button type="button" class="btn hide">ex ea commodo</button>
+      </div>
     </div>
-  </div>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

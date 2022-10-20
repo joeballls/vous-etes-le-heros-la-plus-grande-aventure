@@ -1,5 +1,5 @@
-html{
-  background-color: #493B5B;
+html {
+  background-color: #493b5b;
 }
 
 @font-face {
@@ -12,23 +12,23 @@ html{
   font-family: "RainyHearts";
 }
 
-.title{
+.title {
   font-family: "Alagard";
   color: #b8f087;
   font-size: 50px;
   align-self: center;
   margin-bottom: 0px;
-  text-shadow: 0px 3px #90BD69;
+  text-shadow: 0px 3px #90bd69;
 }
 
-body{
+body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.game{
+.game {
   width: 700px;
   height: 750px;
   display: flex;
@@ -38,14 +38,14 @@ body{
   border-radius: 10px;
 }
 
-.subtitle{
-  font-family: "alagard";  
+.subtitle {
+  font-family: "alagard";
   font-size: 35px;
   align-self: center;
   margin: 10px;
 }
 
-.paragraph{
+.paragraph {
   font-family: "rainyhearts";
   align-self: center;
   font-size: 30px;
@@ -54,21 +54,20 @@ body{
   margin-right: 30px;
 }
 
-.image{
-  margin: 30px;
-  margin-top: 0px;
-  border-radius: 15px;
+.image {
+  width: 100%;
+  border-radius: 10px;
 }
 
-.buttons{
+.buttons {
   display: flex;
   justify-content: space-between;
   margin-left: 30px;
   margin-right: 30px;
 }
 
-button{
-  background-color:#b8f087;
+button {
+  background-color: #b8f087;
   border-style: solid;
   border-radius: 5px;
   padding: 5px;
@@ -77,11 +76,17 @@ button{
   font-size: 23px;
 }
 
-button:hover{
-  background-color: #90BD69;
+button:hover {
+  background-color: #90bd69;
   transition-duration: 0.15s;
 }
 
-.hide{
+.hide {
   display: none;
+}
+
+.SELECT_THIS {
+  width: 91.4%;
+  padding: 30px;
+  padding-top: 10px;
 }
