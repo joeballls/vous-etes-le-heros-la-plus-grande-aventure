@@ -3,7 +3,7 @@ let chaptersObj = {
   reset_screen: {
     subtitle: "Recommencer",
     text: "Pour quelconques raisons, vous devez recommencer.",
-    img: "../assets/images/treasure.png",
+    img: "./assets/images/treasure.png",
     options: [
       (restart = {
         text: "Recommencer!",
@@ -44,6 +44,7 @@ let chaptersObj = {
     subtitle: "5 minutes de plus...",
     text: "Vous décidez que se lever prend trop d'effort, donc vous vous rendormez.",
     img: "./assets/images/dormir_reset.png",
+    metalbar: "yes",
     options: [
       (dormir = {
         text: "zzzzzzzz",
@@ -139,6 +140,7 @@ let chaptersObj = {
     subtitle: "Saoul",
     text: "Vous avez bu un peu trop et vous tombez par terre.",
     img: "./assets/images/saoul_reset.png",
+    dead: "yes",
     options: [
       (saoul = {
         text: "oops",
@@ -150,7 +152,7 @@ let chaptersObj = {
   taverne_engager: {
     subtitle: "Engager l'aventurier",
     text: "Vous parlez à cette personne et elle accepte votre demande d'aide contre le dragon. Vous avez maintenant un coéquippier!",
-    img: "./assets/images/taverne_engager.png",
+    img: "./assets/images/taverne_engager2.png",
     options: [
       (engager = {
         text: "Superbe",
@@ -162,7 +164,7 @@ let chaptersObj = {
   partir_quete: {
     subtitle: "Partir à l'aventure!",
     text: "Après avoir préparé, vous partez enfin sur la quête.",
-    img: "./assets/images/partir_quete_gif.gif",
+    vid: "./assets/videos/guyrunning.mp4",
     options: [
       (continuer = {
         text: "...",
@@ -211,6 +213,7 @@ let chaptersObj = {
     subtitle: "Mort par les bandits",
     text: "Vous vous faites tuer par les bandits.",
     img: "./assets/images/treasure.png",
+    dead: "yes",
     options: [
       (bandits_mort = {
         text: "RIP",
@@ -275,6 +278,7 @@ let chaptersObj = {
     subtitle: "Eh, ça vaut pas la peine.",
     text: "Lorsque vous avez vu le dragon, vous décidez d'abandonner puisqu'il vous fait peur.",
     img: "./assets/images/treasure.png",
+    metalbar: "yes",
     options: [
       (reset = {
         text: "Bruh",
@@ -287,6 +291,7 @@ let chaptersObj = {
     subtitle: "Incinéré!",
     text: "Malgré vos efforts, le dragon vous brûle jusqu'à que vous êtes une pile de cendre.",
     img: "./assets/images/treasure.png",
+    dead: "yes",
     options: [
       (reset = {
         text: "Crispy",
@@ -321,19 +326,51 @@ let chaptersObj = {
 };
 
 function goToChapter(chapterName) {
+  localStorage.setItem("chapter", chapterName);
+
+  // let vine = new Audio("./assets/sounds/vineboom.mp3");
+  // vine.volume = 0.7;
+  // vine.play();
+
+  // let death = new Audio("./assets/sounds/pichuun.mp3");
+  // death.play();
+
+  if (chaptersObj[chapterName]["dead"] != null) {
+    let death = new Audio("./assets/sounds/pichuun.mp3");
+    death.volume = 0.5;
+    death.play();
+  } else if (chaptersObj[chapterName]["metalbar"] != null){
+    let metalbar = new Audio("./assets/sounds/metalbar.mp3");
+    metalbar.play();
+  } else {
+    let vine = new Audio("./assets/sounds/vineboom.mp3");
+    vine.volume = 0.5;
+    vine.play();  
+  }; // soit display une image, soit display une video
+
+
+  // ------------------------------ jouer du son
+
   let chapterSubtitle = chaptersObj[chapterName]["subtitle"]; // variable pour subtitle
   let chapterText = chaptersObj[chapterName]["text"]; //variable pour texte
   let chapterImg = chaptersObj[chapterName]["img"]; //variable pour image
+  let chapterVid = chaptersObj[chapterName]["vid"]; // variable pour video
   let chapterOptions = chaptersObj[chapterName]["options"]; // variable pour les options d'un chapitre
 
   let HTMLsubtitle = document.querySelector(".subtitle"); // variable pour subtitle dans le document
   let HTMLtext = document.querySelector(".paragraph"); // variable pour texte dans le document
-  let HTMLimage = document.querySelector(".SELECT_THIS");
-  
+  let HTMLimage = document.querySelector(".image_container");
+
   console.log(chapterSubtitle); // prints qui verifie que ca fonctione :)
   HTMLsubtitle.innerHTML = chapterSubtitle; // change le texte dans l'HTML
   HTMLtext.innerHTML = chapterText;
-  HTMLimage.innerHTML = "<img class='image' src='" + chapterImg + "'>"; // :|
+
+  if (chaptersObj[chapterName]["img"] != null) {
+    HTMLimage.innerHTML = "<img class='image' src='" + chapterImg + "'>"; // :|
+  } else {
+    HTMLimage.innerHTML = "<video class='video' src='" + chapterVid + "' muted loop autoplay>";
+  }; // soit display une image, soit display une video
+
   let button = document.querySelectorAll(".btn");
 
   for (let index = 0; index <= 2; index++) {
@@ -345,24 +382,29 @@ function goToChapter(chapterName) {
       button[index].classList.add("hide");
     }
   }
-}
+} // fonction pour cacher les boutons
+
 //conditions
 let swordObtained = false; // epee pas obtenu par defaut
 let partnerObtained = false; // coequipier pas obtenu par defaut
 
 function getPartner() {
   partnerObtained = true;
+  localStorage.setItem("partnerObtained", "true");
   goToChapter("quoi_faire_taverne");
 }
 
 function getSword() {
   swordObtained = true;
+  localStorage.setItem("swordObtained", "true");
   goToChapter("quoi_acheter_marche_village");
 }
 
 function reset_items() {
   swordObtained = false;
   partnerObtained = false;
+  localStorage.setItem("swordObtained", "false");
+  localStorage.setItem("partnerObtained", "false");
   goToChapter("intro");
   console.log("resetted items");
 }
@@ -390,3 +432,22 @@ function dragon_fight() {
     goToChapter("dragon_reset");
   }
 } // verifie les conditions pour le dragon
+
+(function () {
+  console.log("refreshed");
+  goToChapter(localStorage.getItem("chapter"));
+  localStorage.getItem("swordObtained");
+  localStorage.getItem("partnerObtained");
+
+  if (localStorage.getItem("swordObtained") == "true") {
+    swordObtained = true;
+  } else {
+    swordObtained = false;
+  }
+
+  if (localStorage.getItem("partnerObtained") == "true") {
+    partnerObtained = true;
+  } else {
+    partnerObtained = false;
+  }
+})(); // sauvegarde locale (chapitre et quest items!)
