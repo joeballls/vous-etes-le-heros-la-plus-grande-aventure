@@ -103,7 +103,7 @@ let chaptersObj = {
 
   ou_aller_centre: {
     subtitle: "Le centre du village",
-    text: "Vous êtes au centre du village. Il y a des bâtiments tout autours de vous mais ce qu'il prend votre attention est la taverne.",
+    text: "Vous êtes au centre du village. Il y a des bâtiments tout autour de vous mais ce qui attire votre attention est la taverne.",
     img: "./assets/images/ou_aller_centre.png",
     options: [
       (en_arriere = {
@@ -176,7 +176,7 @@ let chaptersObj = {
   camp_bandits: {
     subtitle: "Bandits!",
     text: "Sur votre chemin, vous entrez dans un camp de bandits. Ceux-ci n'apprécient pas les intrus.",
-    img: "./assets/images/treasure.png",
+    img: "./assets/images/camp_bandits.png",
     options: [
       (bandits_section1 = {
         text: "Oh non",
@@ -188,7 +188,7 @@ let chaptersObj = {
   bandits_sacrifice: {
     subtitle: "Sacrifice",
     text: "Puisque vous n'avez pas d'arme, votre partenaire se sacrifie pour vous.",
-    img: "./assets/images/treasure.png",
+    img: "./assets/images/bandits_sacrifice.png",
     options: [
       (bandits_section2 = {
         text: "RIP",
@@ -200,7 +200,7 @@ let chaptersObj = {
   bandits_seul: {
     subtitle: "Tout seul",
     text: "Avec la mort de votre ami, vous êtes maintenant tout seul sur la quête.",
-    img: "./assets/images/treasure.png",
+    img: "./assets/images/bandits_seul.png",
     options: [
       (bandits_section3 = {
         text: ":(",
@@ -212,7 +212,7 @@ let chaptersObj = {
   bandits_reset: {
     subtitle: "Mort par les bandits",
     text: "Vous vous faites tuer par les bandits.",
-    img: "./assets/images/treasure.png",
+    img: "./assets/images/bandits_reset.png",
     dead: "yes",
     options: [
       (bandits_mort = {
@@ -224,8 +224,8 @@ let chaptersObj = {
 
   bandits_parfait: {
     subtitle: "Bataille parfaite!",
-    text: "Vous et votre coéquippier ont parfaitement travaillé ensemble pour tuer les bandits! Vous êtes une très bonne équipe!",
-    img: "./assets/images/treasure.png",
+    text: "Vous avez travaillé ensemble parfaitement avec votre amis pour tuer les bandits! Vous êtes une très bonne équipe!",
+    img: "./assets/images/bandits_parfait.png",
     options: [
       (bandits_win = {
         text: "'erry noice",
@@ -237,7 +237,7 @@ let chaptersObj = {
   bandits_blesse: {
     subtitle: "Blessé!",
     text: "Vous avez repoussé les bandits mais ils vous ont quand même blessé.",
-    img: "./assets/images/treasure.png",
+    img: "./assets/images/bandits_blesse.png",
     options: [
       (bandits_hurt = {
         text: "ouchy",
@@ -249,7 +249,7 @@ let chaptersObj = {
   bandits_vaincus: {
     subtitle: "Victoire contre les bandits!",
     text: "Les bandits ont été vaincus et vous pouvez continuer votre quête.",
-    img: "./assets/images/treasure.png",
+    img: "./assets/images/bandits_vaincus.png",
     options: [
       (bandits_done = {
         text: "You're winner!",
@@ -303,7 +303,7 @@ let chaptersObj = {
   dragon_combat: {
     subtitle: "Combat avec le dragon!",
     text: "Même si le dragon est 100x plus grand que vous, vous décidez de perseverer et de le tuer!",
-    img: "./assets/images/treasure.png",
+    vid: "./assets/videos/dragonfight.mp4",
     options: [
       (kill = {
         text: "Kill.",
