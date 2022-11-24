@@ -324,32 +324,46 @@ let chaptersObj = {
     ],
   },
 };
+let death = new Audio("./assets/sounds/pichuun.mp3");
+let metalbar = new Audio("./assets/sounds/metalbar.mp3");
+let vine = new Audio("./assets/sounds/vineboom.mp3");
 
 function goToChapter(chapterName) {
   localStorage.setItem("chapter", chapterName);
 
-  // let vine = new Audio("./assets/sounds/vineboom.mp3");
-  // vine.volume = 0.7;
-  // vine.play();
-
-  // let death = new Audio("./assets/sounds/pichuun.mp3");
-  // death.play();
+  let muteBtn = document.querySelector(".muteBtn");
+  muteBtn.addEventListener("change", function () {
+    if (muteBtn.checked) {
+      death.volume = 0.6;
+      metalbar.volume = 1;
+      vine.volume = 0.5;
+    } else {
+      console.log("unchecked");
+      death.volume = 0;
+      metalbar.volume = 0;
+      vine.volume = 0;
+    }
+  });
 
   if (chaptersObj[chapterName]["dead"] != null) {
-    let death = new Audio("./assets/sounds/pichuun.mp3");
-    death.volume = 0.5;
+    death.currentTime = 0;
     death.play();
-  } else if (chaptersObj[chapterName]["metalbar"] != null){
-    let metalbar = new Audio("./assets/sounds/metalbar.mp3");
+  } else if (chaptersObj[chapterName]["metalbar"] != null) {
+    metalbar.currentTime = 0;
     metalbar.play();
   } else {
-    let vine = new Audio("./assets/sounds/vineboom.mp3");
-    vine.volume = 0.5;
-    vine.play();  
-  }; // soit display une image, soit display une video
+    vine.currentTime = 0;
+    vine.play();
+  }
 
+  /* let btnArr = document.querySelectorAll(".btn");
+  for (let index = 0; index < btnArr.length; index++) {
+    btnArr[index].addEventListener("click", function () {
 
-  // ------------------------------ jouer du son
+    });
+    console.log(btnArr[index])
+    break;
+  }*/
 
   let chapterSubtitle = chaptersObj[chapterName]["subtitle"]; // variable pour subtitle
   let chapterText = chaptersObj[chapterName]["text"]; //variable pour texte
@@ -368,8 +382,9 @@ function goToChapter(chapterName) {
   if (chaptersObj[chapterName]["img"] != null) {
     HTMLimage.innerHTML = "<img class='image' src='" + chapterImg + "'>"; // :|
   } else {
-    HTMLimage.innerHTML = "<video class='video' src='" + chapterVid + "' muted loop autoplay>";
-  }; // soit display une image, soit display une video
+    HTMLimage.innerHTML =
+      "<video class='video' src='" + chapterVid + "' muted loop autoplay>";
+  } // soit display une image, soit display une video
 
   let button = document.querySelectorAll(".btn");
 
@@ -408,6 +423,16 @@ function reset_items() {
   goToChapter("intro");
   console.log("resetted items");
 }
+
+let resetBtn = document.querySelector(".resetBtn");
+resetBtn.addEventListener("click", function () {
+  swordObtained = false;
+  partnerObtained = false;
+  localStorage.setItem("swordObtained", "false");
+  localStorage.setItem("partnerObtained", "false");
+  goToChapter("intro");
+  console.log("reset game");
+}); // reset le jeu
 
 function bandit_shenanigans() {
   if (swordObtained == false && partnerObtained == true) {
