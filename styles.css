@@ -1,15 +1,18 @@
-html {
-  background-image: url(./assets/images/bg.png);
+body {
+  background-image: url(assets/images/bg.png);
   animation-name: bg_anim;
   animation-duration: 60s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   color: rgb(255, 255, 255);
 }
-
 @keyframes bg_anim {
-  from { background-position: 0% 0%;}
-  to { background-position: -100% -100%;}
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: -100% -100%;
+  }
 }
 
 @font-face {
@@ -36,9 +39,15 @@ html {
 }
 
 @keyframes title_anim {
-  0% { transform: translate(0px, 0px);}
-  50% { transform: translate(0px, -5px);}
-  100% { transform: translate(0px, 0px);}
+  0% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(0px, -5px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
 }
 
 body {
@@ -57,6 +66,7 @@ body {
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.493);
+  transition-duration: 0.3s;
 }
 
 .subtitle {
@@ -137,4 +147,145 @@ button:hover {
 .muteLabel {
   font-family: "RainyHearts";
   font-size: 25px;
+}
+
+body.reset_screen .game {
+  background-color: rgb(255, 96, 96);
+  transition-duration: 0.3s;
+}
+
+body.reset_screen {
+  background-image: url(assets/images/bg_red.png);
+  transition-duration: 0.3s;
+}
+
+body.reset_screen .title {
+  color: #7e0000;
+  text-shadow: 0px 3px 3px #3a0000;
+  transition-duration: 0.3s;
+}
+
+body.saoul_reset .game {
+  transform: rotate(5deg) translateY(50px);
+  transition-duration: 0.3s;
+}
+
+body.saoul_reset .subtitle {
+  filter: blur(2px);
+  transform: rotate(-3deg);
+  transition-duration: 0.3s;
+}
+
+body.saoul_reset .paragraph {
+  transform: rotate(-7deg);
+  transition-duration: 0.3s;
+}
+
+body.saoul_reset .title {
+  filter: blur(5px);
+  transition-duration: 0.3s;
+}
+
+body.camp_bandits .image {
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  animation-name: color_change;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transition-timing-function: 0.3s;
+}
+
+body.camp_bandits .title {
+  text-shadow: 0px 3px 3px #3a0000;
+  animation-name: color_change;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transition-timing-function: 0.3s;
+}
+
+@keyframes color_change {
+  from {
+    color: red;
+    border-color: #ff0000;
+  }
+  to {
+    color: black;
+    border-color: black;
+  }
+}
+
+body.dormir_reset {
+  filter: grayscale();
+  background-image: url(assets/images/bg_sleep.png);
+  transition-duration: 0.3s;
+}
+
+body.dormir_reset .game {
+  background-color: rgb(71, 71, 71);
+  transition-duration: 0.3s;
+}
+
+body.bandits_vaincus .game {
+  background-color: rgb(185, 136, 0);
+  transition-duration: 0.3s;
+  animation-name: win;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0,.97,.46,.98);
+}
+
+body.bandits_vaincus .title {
+  color: rgb(255, 230, 0);
+  text-shadow: 0px 3px 3px #7d8000;
+  transition-duration: 0.3s;
+}
+
+@keyframes win {
+  0% {transform: translateY(0px);}
+  50% {transform: translateY(-50px);}
+  100% {transform: translateY(0px);}
+}
+
+body.dragon_victoire .game{
+  background-color: rgb(185, 136, 0);
+  transition-duration: 0.3s;
+  animation-name: win;
+  animation-duration: 0.5s;
+  animation-iteration-count: 3;
+  animation-timing-function: cubic-bezier(0,.97,.46,.98);
+}
+
+body.dragon_victoire .title {
+  color: rgb(255, 230, 0);
+  text-shadow: 0px 3px 3px #7d8000;
+  transition-duration: 0.3s;
+}
+
+body.dragon_reset .game{
+  transition-duration: 0.3s;
+  animation-name: flames;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  transition-duration: 0.3s;
+}
+
+body.dragon_reset .title{
+  color: black;
+  text-shadow: 0px 3px 3px #202020;
+  transition-duration: 0.3s;
+}
+
+@keyframes flames {
+  0% {background-color: rgb(255, 72, 0);}
+  50% {background-color: rgb(235, 152, 0);}
+  100% {background-color: rgb(255, 72, 0);}
+}
+
+body.dragon_reset{
+  transition-duration: 0.3s;
+  background-image: url(assets/images/bg_fire1.png);
+  transition-duration: 0.3s;
 }
