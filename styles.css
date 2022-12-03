@@ -59,7 +59,7 @@ body {
 
 .game {
   width: 700px;
-  height: 800px;
+  height: 810px;
   display: flex;
   justify-content: flex-start;
   background-color: #695483;
