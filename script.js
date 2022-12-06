@@ -261,7 +261,7 @@ let chaptersObj = {
   dragon_rencontre: {
     subtitle: "Dragon!",
     text: "Vous avez entré dans les ruines d'un anciens château et vous faites face à un dragon gigantesque!",
-    img: "assets/images/treasure.png",
+    img: "assets/images/dragon_rencontre.png",
     options: [
       (continuer = {
         text: "Scary",
@@ -277,7 +277,7 @@ let chaptersObj = {
   abandonne_reset: {
     subtitle: "Eh, ça vaut pas la peine.",
     text: "Lorsque vous avez vu le dragon, vous décidez d'abandonner puisqu'il vous fait peur.",
-    img: "assets/images/treasure.png",
+    img: "assets/images/abandonne_reset.png",
     metalbar: "yes",
     options: [
       (reset = {
@@ -290,7 +290,7 @@ let chaptersObj = {
   dragon_reset: {
     subtitle: "Incinéré!",
     text: "Malgré vos efforts, le dragon vous brûle jusqu'à que vous êtes une pile de cendre.",
-    img: "assets/images/treasure.png",
+    vid: "assets/videos/dragon_reset.mp4",
     dead: "yes",
     options: [
       (reset = {
@@ -315,7 +315,7 @@ let chaptersObj = {
   dragon_victoire: {
     subtitle: "VICTOIRE!!!",
     text: "Avec la mort du dragon, vous avez un sentiment de satisfaction; votre quête est complétée!",
-    img: "assets/images/treasure.png",
+    vid: "assets/videos/dragon_victoire.mp4",
     options: [
       (epic_win = {
         text: "A winner is you",
